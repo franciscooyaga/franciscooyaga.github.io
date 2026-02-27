@@ -1,0 +1,81 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 3840 2160" preserveAspectRatio="xMidYMid slice">
+  <defs>
+    <!-- Dark radial gradient base -->
+    <radialGradient id="bg" cx="50%" cy="40%" r="70%">
+      <stop offset="0%" stop-color="#1a1033"/>
+      <stop offset="100%" stop-color="#0B0F1A"/>
+    </radialGradient>
+
+    <!-- Glow filter for lightning -->
+    <filter id="glow" x="-50%" y="-50%" width="200%" height="200%">
+      <feGaussianBlur stdDeviation="8" result="blur"/>
+      <feComposite in="SourceGraphic" in2="blur" operator="over"/>
+    </filter>
+    <filter id="glow-lg" x="-50%" y="-50%" width="200%" height="200%">
+      <feGaussianBlur stdDeviation="20" result="blur"/>
+      <feComposite in="SourceGraphic" in2="blur" operator="over"/>
+    </filter>
+    <filter id="glow-sm" x="-50%" y="-50%" width="200%" height="200%">
+      <feGaussianBlur stdDeviation="4" result="blur"/>
+      <feComposite in="SourceGraphic" in2="blur" operator="over"/>
+    </filter>
+  </defs>
+
+  <!-- Background -->
+  <rect width="3840" height="2160" fill="url(#bg)"/>
+
+  <!-- Subtle grid pattern -->
+  <pattern id="grid" width="80" height="80" patternUnits="userSpaceOnUse">
+    <path d="M 80 0 L 0 0 0 80" fill="none" stroke="#ffffff" stroke-width="0.3" opacity="0.04"/>
+  </pattern>
+  <rect width="3840" height="2160" fill="url(#grid)"/>
+
+  <!-- Main lightning bolt – center -->
+  <g filter="url(#glow-lg)" opacity="0.15">
+    <polyline points="1920,0 1880,400 1960,420 1860,850 1950,870 1820,1300 1940,1340 1800,1800 1900,1850 1780,2160"
+      fill="none" stroke="#8B5CF6" stroke-width="6" stroke-linecap="round" stroke-linejoin="round"/>
+  </g>
+  <g filter="url(#glow)" opacity="0.3">
+    <polyline points="1920,0 1880,400 1960,420 1860,850 1950,870 1820,1300 1940,1340 1800,1800 1900,1850 1780,2160"
+      fill="none" stroke="#A78BFA" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+  </g>
+
+  <!-- Branch bolt – left -->
+  <g filter="url(#glow)" opacity="0.12">
+    <polyline points="1860,850 1720,1000 1760,1020 1650,1200 1700,1220 1580,1500"
+      fill="none" stroke="#7C3AED" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+  </g>
+
+  <!-- Branch bolt – right -->
+  <g filter="url(#glow)" opacity="0.1">
+    <polyline points="1950,870 2100,1050 2060,1070 2180,1300 2130,1330 2250,1600"
+      fill="none" stroke="#7C3AED" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
+  </g>
+
+  <!-- Secondary bolt – far left -->
+  <g filter="url(#glow-sm)" opacity="0.08">
+    <polyline points="600,0 640,300 580,320 650,600 600,620 680,950 620,980 700,1400"
+      fill="none" stroke="#6D28D9" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+  </g>
+
+  <!-- Secondary bolt – far right -->
+  <g filter="url(#glow-sm)" opacity="0.07">
+    <polyline points="3200,0 3160,350 3220,370 3140,700 3200,720 3100,1100 3180,1130 3060,1600"
+      fill="none" stroke="#6D28D9" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+  </g>
+
+  <!-- Tiny spark dots scattered -->
+  <circle cx="1850" cy="860" r="3" fill="#C4B5FD" opacity="0.4" filter="url(#glow-sm)"/>
+  <circle cx="1960" cy="880" r="2" fill="#C4B5FD" opacity="0.3" filter="url(#glow-sm)"/>
+  <circle cx="1720" cy="1010" r="2" fill="#A78BFA" opacity="0.25" filter="url(#glow-sm)"/>
+  <circle cx="2100" cy="1060" r="2.5" fill="#A78BFA" opacity="0.2" filter="url(#glow-sm)"/>
+  <circle cx="640" cy="310" r="2" fill="#8B5CF6" opacity="0.15" filter="url(#glow-sm)"/>
+  <circle cx="3160" cy="360" r="2" fill="#8B5CF6" opacity="0.15" filter="url(#glow-sm)"/>
+
+  <!-- Atmospheric haze at bottom -->
+  <linearGradient id="bottom-fog" x1="0" y1="1800" x2="0" y2="2160" gradientUnits="userSpaceOnUse">
+    <stop offset="0%" stop-color="#0B0F1A" stop-opacity="0"/>
+    <stop offset="100%" stop-color="#0B0F1A" stop-opacity="0.8"/>
+  </linearGradient>
+  <rect y="1800" width="3840" height="360" fill="url(#bottom-fog)"/>
+</svg>
